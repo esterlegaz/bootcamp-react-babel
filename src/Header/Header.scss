@@ -1,0 +1,14 @@
+.header {
+    background: dodgerblue;
+    color: white;
+    font-family: 'Roboto', serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+    height: 50px;
+
+    h3 {
+        margin: 0;
+    }
+}

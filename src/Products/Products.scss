@@ -1,0 +1,69 @@
+.product__item {
+    margin-bottom: 20px;
+    border-bottom: 4px solid #e6e6e6;
+    padding-bottom: 20px;
+    list-style: none;
+}
+
+.product__item--flex {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    font-family: 'Roboto Slab', sans-serif;
+}
+
+p {
+    font-family: 'Roboto', serif;
+    font-weight: 700;
+}
+
+.product__btn {
+    background: dodgerblue;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    height: 60px;
+    padding: 4px;
+    width: 120px;
+    outline: none;
+}
+
+.product__info {
+    margin-left: 16px;
+}
+
+.products__title {
+    margin-left: 40px;
+}
+
+.products__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.product__price {
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 20px;
+}
+
+.product__icons {
+    display: block;
+    margin: 8px 0 0 42px;
+}
+
+.product__icon {
+    font-size: 50px;
+    cursor: pointer;
+}
+
+i.product__icon.material-icons.product__icon--selected {
+    background: #e6e6e6;
+}
+
+.material-icons {
+    cursor: pointer;
+}
