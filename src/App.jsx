@@ -33,7 +33,7 @@ class App extends React.Component {
       },
     });
     return (
-      <Router>
+      <Router basename="/bootcamp-react-babel">
         <ThemeProvider theme={theme}>
           <Header />
           <div className="products__container">
