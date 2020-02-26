@@ -19,7 +19,7 @@ export const addToCart = (product) => {
 
 export const removeFromCart = (cartProduct) => {
     const productToRemove = CART_PRODUCTS.findIndex(product => product.id === cartProduct.id);
-    CART_PRODUCTS.splice(productToRemove);
+    CART_PRODUCTS.splice(productToRemove, 1);
 }
 
 export const addProduct = (product) => {
