@@ -3,6 +3,10 @@
     border-bottom: 4px solid #e6e6e6;
     padding-bottom: 20px;
     list-style: none;
+
+    img {
+        height: 200px;
+    }
 }
 
 .product__item--flex {
@@ -23,10 +27,6 @@ p {
     margin-left: 16px;
 }
 
-.products__title {
-    margin-left: 40px;
-}
-
 .products__grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -45,6 +45,14 @@ p {
 .product__icon {
     font-size: 50px;
     cursor: pointer;
+}
+
+.products__list {
+    ul {
+        @media all and(max-width: 420px) {
+            padding-left: 20px;
+        }
+    }
 }
 
 i.product__icon.material-icons.product__icon--selected {
