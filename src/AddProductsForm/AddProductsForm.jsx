@@ -1,6 +1,8 @@
 import React from 'react';
 import './AddProductsForm.scss';
 import * as ProductService from './../Services/ProductsService';
+import TextField from '@material-ui/core/TextField';
+import BtnProducts from './../BtnProducts/BtnProducts.jsx';
 
 class AddProductsForm extends React.Component {
     constructor(props) {
@@ -21,29 +23,48 @@ class AddProductsForm extends React.Component {
     handleChange(event) {
         const target = event.target;
         const value = target.value;
-        const name = target.name;
-    
+        const field = target.name;
+
         this.setState({
-          [name]: value
+            [field]: value
         });
-      }
+    }
 
     render() {
         return (
-            <form className="products__form" onSubmit={this.handleSubmit}>
-                <label>
-                    Name:
-                    <input value={this.state.name} onChange={this.handleChange} type="text" name="name" />
-                </label>
-                <label>
-                    Price:
-                    <input value={this.state.price} onChange={this.handleChange} type="number" name="price" />
-                </label>
-                <label>
-                    Description:
-              <textarea value={this.state.description} onChange={this.handleChange} name="description"/>
-                </label>
-                <button type="submit">Enviar</button>
+            <form className="products__form">
+                <div className="products__form--input">
+                    <TextField
+                        required
+                        name="name"
+                        variant="outlined"
+                        label="Name"
+                        defaultValue={this.state.name}
+                        onKeyUp={this.handleChange} />
+                </div>
+                <div className="products__form--input">
+                    <TextField
+                        required
+                        type="number"
+                        name="price"
+                        variant="outlined"
+                        label="Price"
+                        defaultValue={this.state.price}
+                        onKeyUp={this.handleChange} />
+                </div>
+                <div className="products__form--input">
+                    <TextField
+                        required
+                        multilined="true"
+                        name="description"
+                        variant="outlined"
+                        label="Description"
+                        rows="4"
+                        defaultValue={this.state.price}
+                        onKeyUp={this.handleChange} />
+                </div>
+
+                <BtnProducts handleClick={this.handleSubmit} text="Enviar" />
             </form>
         )
     };

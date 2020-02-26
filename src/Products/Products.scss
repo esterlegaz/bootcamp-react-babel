@@ -60,6 +60,12 @@ p {
     cursor: pointer;
 }
 
+.products__add--icon {
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+}
+
 i.product__icon.material-icons.product__icon--selected {
     background: #e6e6e6;
 }

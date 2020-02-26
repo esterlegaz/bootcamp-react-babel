@@ -1,11 +1,8 @@
 .products__form {
-    margin-left: 20px;
-    input, textarea {
-        display: block;
-    }
-    
-    label {
-        display: block;
-        margin-top: 8px;
-    }
+    margin: 20px;
+} 
+
+.products__form--input {
+    display: block;
+    margin-bottom: 8px;
 } 
