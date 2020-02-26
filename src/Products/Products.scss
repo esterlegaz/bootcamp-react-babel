@@ -19,25 +19,15 @@ p {
     font-weight: 700;
 }
 
-.product__btn {
-    background: dodgerblue;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-    height: 60px;
-    padding: 4px;
-    width: 120px;
-    outline: none;
-}
-
 .product__info {
     margin-left: 16px;
 }
 
 .products__title {
     margin-left: 40px;
+    @media all and(max-width: 420px) {
+        margin-left: 20px;
+    }
 }
 
 .products__grid {
@@ -64,6 +54,10 @@ p {
     position: fixed;
     bottom: 2%;
     right: 2%;
+    @media all and(max-width: 420px) {
+        top: 70px;
+        bottom: auto;
+    }
 }
 
 i.product__icon.material-icons.product__icon--selected {
