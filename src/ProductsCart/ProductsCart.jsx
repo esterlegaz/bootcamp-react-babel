@@ -9,7 +9,7 @@ function ProductsCart(props) {
     return (
         <Fragment>
             <h1 className="products__title">Cart Products</h1>
-            <ProductsList handleIsGrid={props.handleIsGrid} handleIsNotGrid={props.handleIsNotGrid} isGrid={props.isGrid} handleClick={ProductService.removeFromCart}productList={ProductService.listCartProducts()} text={removeFromCart} />
+            <ProductsList handleIsGrid={props.handleIsGrid} handleIsNotGrid={props.handleIsNotGrid} isGrid={props.isGrid} handleClick={ProductService.removeFromCart} productList={ProductService.listCartProducts} text={removeFromCart} />
         </Fragment>
     )
 

@@ -19,7 +19,7 @@ function Products(props) {
                     </Fab>
                 </div>
             </Link>
-            <ProductsList handleIsGrid={props.handleIsGrid} handleIsNotGrid={props.handleIsNotGrid} isGrid={props.isGrid} handleClick={ProductService.addToCart} productList={ProductService.listProducts()} text={addToCart} />
+            <ProductsList handleIsGrid={props.handleIsGrid} handleIsNotGrid={props.handleIsNotGrid} isGrid={props.isGrid} handleClick={ProductService.addToCart} productList={ProductService.listProducts} text={addToCart} />
         </Fragment>
     )
 }
