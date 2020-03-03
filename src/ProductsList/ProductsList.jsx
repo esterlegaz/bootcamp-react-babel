@@ -16,26 +16,27 @@ class ProductsList extends React.Component {
 
     }
     handleProductInteraction(product) {
-        this.props.handleClick(product);
         this.setState({
             isLoading: true
         });
-        this.props.productList()
-            .then(
-                (products) => {
-                    this.setState({
-                        isLoading: false,
-                        products
-                    });
-                },
+        this.props.handleClick(product).then(data => {
+            this.props.productList()
+                .then(
+                    (products) => {
+                        this.setState({
+                            isLoading: false,
+                            products
+                        });
+                    },
 
-                (error) => {
-                    this.setState({
-                        isLoading: false,
-                        error
-                    });
-                }
-            )
+                    (error) => {
+                        this.setState({
+                            isLoading: false,
+                            error
+                        });
+                    }
+                )
+        });
     }
 
     componentDidMount() {
@@ -83,7 +84,7 @@ class ProductsList extends React.Component {
                         <div className={`${!this.props.isGrid ? 'product__info' : ''}`}>
                             <h2 className="product__title">{product.name}</h2>
                             {!this.props.isGrid && (
-                                <p>({product.createdAt.toLocaleDateString()}) - {product.description}</p>
+                                <p>({new Date(product.createdAt).toLocaleDateString()}) - {product.description}</p>
                             )}
                             <p className="product__price">{product.price}€</p>
                             <BtnProducts handleClick={() => this.handleProductInteraction(product)} text={this.props.text} />

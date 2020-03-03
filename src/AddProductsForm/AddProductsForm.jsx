@@ -21,7 +21,12 @@ class AddProductsForm extends React.Component {
         this.setState({
             isLoading: true
         });
-        ProductService.addProduct(this.state).then(data => {
+        const newProduct = {
+            name: this.state.name,
+            price: this.state.price,
+            description: this.state.description
+        }
+        ProductService.addProduct(newProduct).then(data => {
             this.setState({
                 isLoading: false,
                 name: '',
