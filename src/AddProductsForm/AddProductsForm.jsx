@@ -8,6 +8,7 @@ class AddProductsForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            isLoading: false,
             name: '',
             price: '',
             description: ''
@@ -17,7 +18,22 @@ class AddProductsForm extends React.Component {
     }
     handleSubmit(event) {
         event.preventDefault();
-        ProductService.addProduct(this.state);
+        this.setState({
+            isLoading: true
+        });
+        const newProduct = {
+            name: this.state.name,
+            price: this.state.price,
+            description: this.state.description
+        }
+        ProductService.addProduct(newProduct).then(data => {
+            this.setState({
+                isLoading: false,
+                name: '',
+                price: '',
+                description: ''
+            })
+        });
     }
 
     handleChange(event) {
@@ -31,42 +47,46 @@ class AddProductsForm extends React.Component {
     }
 
     render() {
-        return (
-            <form className="products__form">
-                <div className="products__form--input">
-                    <TextField
-                        required
-                        name="name"
-                        variant="outlined"
-                        label="Name"
-                        defaultValue={this.state.name}
-                        onKeyUp={this.handleChange} />
-                </div>
-                <div className="products__form--input">
-                    <TextField
-                        required
-                        type="number"
-                        name="price"
-                        variant="outlined"
-                        label="Price"
-                        defaultValue={this.state.price}
-                        onKeyUp={this.handleChange} />
-                </div>
-                <div className="products__form--input">
-                    <TextField
-                        required
-                        multilined="true"
-                        name="description"
-                        variant="outlined"
-                        label="Description"
-                        rows="4"
-                        defaultValue={this.state.price}
-                        onKeyUp={this.handleChange} />
-                </div>
+        if (this.state.isLoading) {
+            return <p>Loading...</p>
+        } else {
+            return (
+                <form className="products__form">
+                    <div className="products__form--input">
+                        <TextField
+                            required
+                            name="name"
+                            variant="outlined"
+                            label="Name"
+                            defaultValue={this.state.name}
+                            onKeyUp={this.handleChange} />
+                    </div>
+                    <div className="products__form--input">
+                        <TextField
+                            required
+                            type="number"
+                            name="price"
+                            variant="outlined"
+                            label="Price"
+                            defaultValue={this.state.price}
+                            onKeyUp={this.handleChange} />
+                    </div>
+                    <div className="products__form--input">
+                        <TextField
+                            required
+                            multilined="true"
+                            name="description"
+                            variant="outlined"
+                            label="Description"
+                            rows="4"
+                            defaultValue={this.state.price}
+                            onKeyUp={this.handleChange} />
+                    </div>
 
-                <BtnProducts handleClick={this.handleSubmit} text="Enviar" />
-            </form>
-        )
+                    <BtnProducts handleClick={this.handleSubmit} text="Enviar" />
+                </form>
+            )
+        }
     };
 }
 

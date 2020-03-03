@@ -55,6 +55,12 @@ p {
     }
 }
 
+.product__spinner {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 i.product__icon.material-icons.product__icon--selected {
     background: #e6e6e6;
 }
