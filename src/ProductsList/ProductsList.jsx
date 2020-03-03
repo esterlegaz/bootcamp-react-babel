@@ -9,7 +9,7 @@ class ProductsList extends React.Component {
         this.state = {
             error: null,
             isLoading: true,
-            products: props.productList
+            products: []
         };
 
         this.handleProductInteraction = this.handleProductInteraction.bind(this);
